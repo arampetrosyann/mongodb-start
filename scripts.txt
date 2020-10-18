@@ -1,0 +1,34 @@
+1) Create a database with the users of the following collection, tasks.
+   Task schema ({ _id, title, text, completed, created, updated }):
+
+    db.createCollection("users")
+
+    db.createCollection("tasks")
+
+2) Create an insert user script:
+
+    db.users.insertOne({ username: "Jonathan", gender: "male", age: 48, tasks: [] })
+
+3) Create update user’s name script for given _id:
+
+    db.users.updateOne({ _id : ObjectId("5f8c6a01c2b4ab53ba6c2f11") }, { $set: { username: "George" } })
+
+4) Create get all users script (retrieving the only username) and sorted by username:
+
+    db.users.find({}, { _id: 0, username: 1 }).sort({ username: 1 })
+
+5) Create a script that returns only female users:
+
+    db.users.find({ gender: "female" })
+
+6) Create a script to update all tasks completed = false:
+
+    db.tasks.updateMany({}, { $set: { completed: false } })
+
+7) Create a script to delete all completed = true tasks:
+
+    db.tasks.deleteMany({ completed: true })
+
+8) Create a script to get all tasks of user sorted by created date that are not completed:
+
+    db.users.find({ _id: ObjectId("5f8c4c0536a13d506be15717") }, { _id: 0, tasks: 1 }).sort({ "tasks.title": 1 })
