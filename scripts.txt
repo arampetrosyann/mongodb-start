@@ -31,4 +31,4 @@
 
 8) Create a script to get all tasks of user sorted by created date that are not completed:
 
-    db.users.find({ _id: ObjectId("5f8c4c0536a13d506be15717") }, { _id: 0, tasks: 1 }).sort({ "tasks.title": 1 })
+    db.users.find({ _id: ObjectId("5f8c4c0536a13d506be15717") }, { _id: 0, tasks: 1 }).sort({ "tasks.created": 1 })
